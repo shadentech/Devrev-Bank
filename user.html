@@ -1,0 +1,32 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const token =
+        "eyJhbGciOiJSUzI1NiIsImlzcyI6Imh0dHBzOi8vYXV0aC10b2tlbi5kZXZyZXYuYWkvIiwia2lkIjoic3RzX2tpZF9yc2EiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOlsiamFudXMiXSwiYXpwIjoiZG9uOmlkZW50aXR5OmR2cnYtZXUtMTpkZXZvLzNEbmVrMDlxQkI6ZGV2dS8xIiwiZXhwIjoxODI5NDQ2ODI4LCJodHRwOi8vZGV2cmV2LmFpL2F1dGgwX3VpZCI6ImRvbjppZGVudGl0eTpkdnJ2LXVzLTE6ZGV2by9zdXBlcjphdXRoMF91c2VyL29pZGN8cGFzc3dvcmRsZXNzfGVtYWlsfDY3NjRkYjVkN2U2NDAyMjVhNDc1MGVkNiIsImh0dHA6Ly9kZXZyZXYuYWkvYXV0aDBfdXNlcl9pZCI6Im9pZGN8cGFzc3dvcmRsZXNzfGVtYWlsfDY3NjRkYjVkN2U2NDAyMjVhNDc1MGVkNiIsImh0dHA6Ly9kZXZyZXYuYWkvZGV2b19kb24iOiJkb246aWRlbnRpdHk6ZHZydi1ldS0xOmRldm8vM0RuZWswOXFCQiIsImh0dHA6Ly9kZXZyZXYuYWkvZGV2b2lkIjoiREVWLTNEbmVrMDlxQkIiLCJodHRwOi8vZGV2cmV2LmFpL2RldnVpZCI6IkRFVlUtMSIsImh0dHA6Ly9kZXZyZXYuYWkvZGlzcGxheW5hbWUiOiJzY2hlaGFiIiwiaHR0cDovL2RldnJldi5haS9lbWFpbCI6InNjaGVoYWJAd2hpdGVoZWxtZXQuc2EiLCJodHRwOi8vZGV2cmV2LmFpL2Z1bGxuYW1lIjoiU2NoZWhhYiIsImh0dHA6Ly9kZXZyZXYuYWkvaXNfdmVyaWZpZWQiOnRydWUsImh0dHA6Ly9kZXZyZXYuYWkvdG9rZW50eXBlIjoidXJuOmRldnJldjpwYXJhbXM6b2F1dGg6dG9rZW4tdHlwZTpwYXQiLCJpYXQiOjE3MzQ4Mzg4MjgsImlzcyI6Imh0dHBzOi8vYXV0aC10b2tlbi5kZXZyZXYuYWkvIiwianRpIjoiZG9uOmlkZW50aXR5OmR2cnYtZXUtMTpkZXZvLzNEbmVrMDlxQkI6dG9rZW4vMTJ6ZFdUT3JBIiwib3JnX2lkIjoib3JnX1dxczQ2Q0hCcnVJTG50MGMiLCJzdWIiOiJkb246aWRlbnRpdHk6ZHZydi1ldS0xOmRldm8vM0RuZWswOXFCQjpkZXZ1LzEifQ.ZlAukBxh6Cpdq6AFKbiwVxYCN77DRhrx4-A96ZOsrji5UiTR6M793XwoJNarKaFTrKWLkfv0UJGHTyAXEgxVV9MHf5HJwLDExNSbMF2f2czNN_yGKfSi5Y99gJIlKmkVEcydIiAWa2tOAvVLV472Q1K4Ly4j9ZTCEI4Zc74PeEfk4N6jaO1qzkZXW-8kJNcTIr0RqS0-XccOEpETiN10CYVCP5KlKJv3HbkpfTH7jDEjbjmWTQcyV4-Wr3XyQYRA-6tylxtP2XhLEt2bZec75-AQiZQAqGujWNruvgfpVPFuopsJdRKXMz2U6M9Hh60xuwORzGff2OgPSpSbqlxzmA"; // Replace with your actual token
+      const url = "https://api.devrev.ai/webhooks.create";
+
+      const payload = {
+        url: "https://app.devrev.ai/whitehelmet", // Replace with your webhook URL
+        event_types: ["conversation_created"],
+        secret: "9JIESduSLhfGHeiYxpJ3+OZrGUphHyzc",
+      };
+
+      fetch(url, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log("Webhook Created:", data))
+        .catch((error) => console.error("Error:", error));
+    </script>
+  </body>
+</html>

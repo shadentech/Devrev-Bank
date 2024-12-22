@@ -4999,8 +4999,6 @@
       );
     }
   })();
-  /**test Dev code */
-  window.plugSDK.toggleSearchAgent();
 
   exports.Util = Util;
   exports.Alert = Alert;
